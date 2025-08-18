@@ -160,8 +160,3 @@ It ensures that even under replay, sybil, and DoS attacks, the receiving vehicle
 - Your Name (B.Tech Project, 2025)
 
 ```
-
----
-
-👉 Do you want me to also draft the **docs/results.md** (a short report with screenshots + explanations) so your `docs/` folder is presentation-ready?
-```
