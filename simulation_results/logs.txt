@@ -1,0 +1,6 @@
+[INFO] 2025-08-18 19:34:39 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-18 19:34:39 - Vehicle1 sent secure message.
+[INFO] 2025-08-18 19:34:39 - Vehicle2 received: {'id': 'V1', 'event': 'Accident ahead at Highway-34', 'speed': 60, 'location': 'Highway-34, Sector-5', 'timestamp': '2025-08-18T14:04:39.119700'}
+[ATTACK] 2025-08-18 19:34:40 - Replay attack detected from V1
+[ATTACK] 2025-08-18 19:34:41 - Sybil attack detected! Fake ID: FakeCar123
+[WARNING] 2025-08-18 19:34:42 - Possible DoS attack from V1 (too many msgs/sec)
