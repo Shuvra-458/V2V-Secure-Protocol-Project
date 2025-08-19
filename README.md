@@ -1,6 +1,3 @@
-Perfect 👍 Let’s create a **professional README.md** for your project so it’s presentation-ready.
-
-Here’s a complete version tailored to your current project structure & outputs:
 
 ---
 
@@ -157,6 +154,6 @@ It ensures that even under replay, sybil, and DoS attacks, the receiving vehicle
 
 ## 👨‍💻 Author
 
-- Your Name (B.Tech Project, 2025)
+- Jyotiprakash Panda (B.Tech Project, 2025)
 
 ```
