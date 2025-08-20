@@ -1,17 +1,11 @@
 
----
-
-```markdown
 # 🚗 Secure Communication Protocols for Vehicle-to-Vehicle (V2V) Networks
 
 This project simulates **secure V2V communication** using cryptographic techniques (AES, RSA, Digital Signatures) and detects common network attacks (**Replay, Sybil, DoS**).  
 It demonstrates how vehicles can exchange safety-critical messages securely, even in the presence of malicious actors.
 
----
-
 ## 📂 Project Structure
 ```
-
 V2V-Secure-Protocol-Project/
 │
 ├── docs/
@@ -55,26 +49,28 @@ V2V-Secure-Protocol-Project/
 │
 ├── requirements.txt # Dependencies
 └── README.md # (This file)
+```
 
-````
 
----
 
 ## ⚙️ Installation
 
-1. Clone the repo:
+### 1️⃣ Clone the Repository
    ```bash
-   git clone https://github.com/your-username/V2V-Secure-Protocol-Project.git
+   git clone https://github.com/Shuvra-458/V2V-Secure-Protocol-Project.git
    cd V2V-Secure-Protocol-Project
-````
+```
 
-2. Install dependencies:
+### 2️⃣ Setup Virtual Environment
 
    ```bash
    pip install -r requirements.txt
    ```
 
----
+### 3️⃣ Install Requirements
+```bash
+pip install -r requirements.txt
+```
 
 ## ▶️ How to Run
 
