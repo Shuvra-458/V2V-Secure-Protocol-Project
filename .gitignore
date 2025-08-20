@@ -1,0 +1,73 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs and debug
+*.log
+*.out
+*.err
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Streamlit specific
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test / Coverage
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+
+# Results / Generated files
+simulation_results/
+*.png
+*.csv
+*.json

@@ -4,3 +4,136 @@
 [ATTACK] 2025-08-18 19:34:40 - Replay attack detected from V1
 [ATTACK] 2025-08-18 19:34:41 - Sybil attack detected! Fake ID: FakeCar123
 [WARNING] 2025-08-18 19:34:42 - Possible DoS attack from V1 (too many msgs/sec)
+[INFO] 2025-08-20 21:10:33.813 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 21:11:24.391 - Vehicle1 sent secure message.
+[INFO] 2025-08-20 21:11:24.398 - Vehicle2 received: {'id': 'V1', 'event': 'Accident at Route 66', 'speed': 55.0, 'location': 'Route-66, Sector-19', 'timestamp': '2025-08-20T15:41:24.107900'}
+[ATTACK] 2025-08-20 21:11:33.197 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.198 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.199 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.223 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.228 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.224 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.243 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.246 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.250 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.270 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.272 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.276 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.289 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.294 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.316 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.316 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.316 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.332 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.336 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.337 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.347 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.364 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.376 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.377 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.378 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.381 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.399 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.402 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.403 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:11:33.413 - Replay attack detected from V1
+[INFO] 2025-08-20 21:46:06.556 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 21:46:30.235 - Vehicle1 sent secure message.
+[INFO] 2025-08-20 21:46:30.241 - Vehicle2 received: {'id': 'V1', 'event': 'Accident ahead at Route 66', 'speed': 125.0, 'location': 'Route 66', 'timestamp': '2025-08-20T16:16:29.861460'}
+[ATTACK] 2025-08-20 21:46:40.522 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.525 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.540 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.558 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.558 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.560 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.577 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.594 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.596 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.599 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.607 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.632 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.627 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.639 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.644 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.646 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.655 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.657 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.664 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.670 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.672 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.690 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.691 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.697 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.701 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.703 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.718 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.718 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.720 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.731 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.734 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.742 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.748 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.749 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.763 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.764 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.766 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.776 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.777 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.787 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.796 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.804 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.814 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.816 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.818 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.826 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.832 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.846 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.846 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.849 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.859 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.860 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.870 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.870 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.873 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.892 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.895 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.898 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.912 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.919 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.920 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.922 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.939 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.946 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.953 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.956 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.958 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.972 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.980 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.989 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:40.990 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:41.000 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:41.003 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:41.024 - Replay attack detected from V1
+[ATTACK] 2025-08-20 21:46:41.037 - Replay attack detected from V1
+[INFO] 2025-08-20 22:12:42.048 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 22:13:43.663 - Vehicle1 sent secure message.
+[INFO] 2025-08-20 22:13:43.668 - Vehicle2 received: {'id': 'V1', 'event': 'Accident ahead at highway', 'speed': 345.0, 'location': 'Sector -12', 'timestamp': '2025-08-20T16:43:43.372974'}
+[ATTACK] 2025-08-20 22:13:52.189 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.191 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.198 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.215 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.216 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.218 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.227 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.229 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.246 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.245 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.249 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.261 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.265 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.266 - Replay attack detected from V1
+[ATTACK] 2025-08-20 22:13:52.274 - Replay attack detected from V1
+[INFO] 2025-08-20 22:23:35.653 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 22:24:51.950 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 22:28:32.940 - AES session key securely exchanged between V1 and V2
+[INFO] 2025-08-20 22:29:33.405 - AES session key securely exchanged between V1 and V2

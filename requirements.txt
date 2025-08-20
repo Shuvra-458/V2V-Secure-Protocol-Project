@@ -1,14 +1,5 @@
 # Core crypto library
 pycryptodome==3.20.0
-
-# Plotting graphs
 matplotlib==3.9.2
-
-# For JSON handling and sockets (built-in to Python, but keeping for clarity)
-# json
-# socket
-
-# Unit testing (Python built-in unittest is used, no need to add)
-
-# Optional: pretty-print logs
 colorama==0.4.6
+streamlit
