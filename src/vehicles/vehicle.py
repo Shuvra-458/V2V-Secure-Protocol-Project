@@ -11,23 +11,23 @@ from src.security.rsa_auth import generate_rsa_keys, encrypt_aes_key, decrypt_ae
 from src.security.digital_signature import generate_signature_keys, sign_message, verify_signature
 from src.network.message_format import create_message, parse_message
 
-
 class Vehicle:
-    def __init__(self, vehicle_id):
+    def __init__(self, vehicle_id, rsa_key_size=3072, aes_key_size=32, sig_key_size=3072):
         self.id = vehicle_id
 
-        # RSA for key exchange
-        self.public_key, self.private_key = generate_rsa_keys()
+        # RSA for key exchange (default 3072 bits for realism)
+        self.public_key, self.private_key = generate_rsa_keys(key_size=rsa_key_size)
 
-        # AES session key (shared later)
+        # AES session key (shared later, default 256 bits for realism)
         self.aes_key = None
+        self.aes_key_size = aes_key_size
 
-        # Digital signature keys
-        self.sig_public, self.sig_private = generate_signature_keys()
+        # Digital signature keys (default 3072 bits for realism)
+        self.sig_public, self.sig_private = generate_signature_keys(key_size=sig_key_size)
 
     def generate_aes_key(self):
         """Generate new AES session key"""
-        self.aes_key = generate_aes_key()
+        self.aes_key = generate_aes_key(self.aes_key_size)
         return self.aes_key
 
     def encrypt_session_key(self, receiver_public):
@@ -46,7 +46,7 @@ class Vehicle:
         # sign
         signature = sign_message(self.sig_private, plain_msg)
 
-        # combine msg + signature
+        # combine msg + signature (use a robust separator)
         combined = plain_msg + "||" + signature
 
         # encrypt with AES
@@ -55,14 +55,17 @@ class Vehicle:
 
     def receive_secure_message(self, encrypted, sender_sig_pub):
         """Decrypt + verify secure message"""
-        decrypted = decrypt_message(self.aes_key, encrypted.decode('utf-8'))
+        try:
+            decrypted = decrypt_message(self.aes_key, encrypted.decode('utf-8'))
+        except Exception:
+            return None, False
 
         # split message + signature
-        try:
-            msg, signature = decrypted.split("||")
-        except ValueError:
+        if "||" not in decrypted:
             return None, False
+        msg, signature = decrypted.rsplit("||", 1)
 
         # verify signature
         valid = verify_signature(sender_sig_pub, msg, signature)
-        return parse_message(msg), valid
+        parsed = parse_message(msg)
+        return parsed, valid
