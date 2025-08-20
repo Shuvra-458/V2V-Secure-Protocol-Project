@@ -148,8 +148,8 @@ It ensures that even under replay, sybil, and DoS attacks, the receiving vehicle
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-- Jyotiprakash Panda (B.Tech Project, 2025)
-
+- Jyotiprakash Panda 
+- Shuvrajyoti Nayak
 ```
