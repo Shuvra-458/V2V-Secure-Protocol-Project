@@ -10,15 +10,12 @@ import base64
 from datetime import datetime
 import ast
 from io import BytesIO
-import plotly.graph_objects as go
-import plotly.express as px
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.PublicKey import RSA
 from Crypto.Signature import pkcs1_15
 from Crypto.Hash import SHA256
 from Crypto.Cipher import PKCS1_OAEP
-import unittest
 
 # Set page configuration
 st.set_page_config(
@@ -301,8 +298,8 @@ def start_server(port, handler):
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             s.bind(("localhost", port))
             s.listen()
-            st.session_state.server_running = True
-            while st.session_state.server_running:
+            st.session_state.simulation_data["server_running"] = True
+            while st.session_state.simulation_data["server_running"]:
                 try:
                     conn, addr = s.accept()
                     threading.Thread(target=handle_client, args=(conn, addr, handler), daemon=True).start()
@@ -322,7 +319,7 @@ def start_server(port, handler):
 
     thread = threading.Thread(target=server, daemon=True)
     thread.start()
-    st.session_state.server_thread = thread
+    st.session_state.simulation_data["server_thread"] = thread
 
 # Implement IDS
 last_seen_timestamps = {}
@@ -504,7 +501,7 @@ if page == "Dashboard":
 
     # Stop server button
     if st.button("Stop Server"):
-        st.session_state.server_running = False
+        st.session_state.simulation_data["server_running"] = False
         st.success("Server stopped")
 
     # Key metrics
