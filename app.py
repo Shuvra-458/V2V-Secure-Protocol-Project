@@ -1,108 +1,96 @@
-# app.py - Refined Streamlit Frontend for V2V Secure Protocol Project
-
 import streamlit as st
-import subprocess
-import os
 import time
-from pathlib import Path
+import json
+import os
+from src.vehicles.vehicle import Vehicle
+from src.network.socket_comm import start_server, send_message
+from src.security import intrusion_detection as IDS
+from src.attacks.replay_attack import launch_replay
+from src.attacks.sybil_attack import launch_sybil
+from src.attacks.dos_attack import launch_dos
+from src.utils import plotter
 
-st.set_page_config(
-    page_title="V2V Secure Protocol",
-    page_icon="🚗",
-    layout="wide",
-)
+# Global containers for logs
+logs = []
 
-# ========================
-# HEADER
-# ========================
-st.title("🚦 V2V Secure Protocol Simulation")
-st.markdown(
-    """
-    ### Vehicle-to-Vehicle (V2V) Secure Communication
-    This dashboard simulates **encrypted communication between vehicles** 
-    with detection of cyberattacks like:
-    - 🌀 **Replay Attack**
-    - 🕵️ **Sybil Attack**
-    - 💥 **DoS Attack**
-    
-    Use the configuration panel to define attack parameters and launch simulations.
-    """
-)
+def log_event(tag, msg):
+    """Push logs to both Streamlit and list"""
+    full_msg = f"[{tag}] {time.strftime('%H:%M:%S')} - {msg}"
+    logs.append(full_msg)
+    st.session_state.log_box.text_area("Logs", "\n".join(logs), height=300)
 
-# ========================
-# SIDEBAR - CONFIGURATION
-# ========================
-st.sidebar.header("⚙️ Attack Configuration")
 
-sybil_event = st.sidebar.text_input("Sybil Event", "Fake traffic jam")
-sybil_speed = st.sidebar.number_input("Sybil Speed (km/h)", min_value=0.0, max_value=200.0, value=0.0, step=1.0)
-sybil_location = st.sidebar.text_input("Sybil Location", "Intersection-9")
+# -----------------------------
+# Main Streamlit UI
+# -----------------------------
+def main():
+    st.set_page_config(page_title="🚗 V2V Secure Protocol Simulator", layout="wide")
+    st.title("🚗 Secure Communication Protocols for Vehicle-to-Vehicle Networks")
 
-fake_ids_input = st.sidebar.text_area("Fake IDs (comma-separated)", "FakeCar123, FakeCar456")
-fake_ids = [id.strip() for id in fake_ids_input.split(",") if id.strip()]
+    st.sidebar.header("⚙️ Simulation Controls")
 
-# ========================
-# MAIN AREA - TABS
-# ========================
-tabs = st.tabs(["▶️ Run Simulation", "📜 Live Logs", "📊 Results"])
+    # Initialize vehicles
+    if "v1" not in st.session_state:
+        st.session_state.v1 = Vehicle("V1")
+        st.session_state.v2 = Vehicle("V2")
 
-with tabs[0]:
-    st.subheader("▶️ Run Simulation")
+        # AES Key Exchange
+        v1, v2 = st.session_state.v1, st.session_state.v2
+        v1.generate_aes_key()
+        encrypted_aes = v1.encrypt_session_key(v2.public_key)
+        v2.decrypt_session_key(encrypted_aes)
+        log_event("INFO", "AES session key securely exchanged between V1 and V2")
 
-    st.markdown(
-        """
-        Press the button below to start the simulation.  
-        The system will exchange AES keys, send secure messages, 
-        and then launch Replay, Sybil, and DoS attacks.
-        """
-    )
+    # Simulation Controls
+    if st.sidebar.button("▶️ Send Normal Message"):
+        v1, v2 = st.session_state.v1, st.session_state.v2
+        encrypted_msg = v1.send_secure_message("Accident ahead at Highway-34", 60, "Highway-34, Sector-5")
+        send_message(5000, encrypted_msg)
+        log_event("INFO", "Vehicle1 sent secure message.")
 
-    if st.button("🚀 Start Simulation"):
-        st.write("⏳ Running simulation...")
+    if st.sidebar.button("🔁 Launch Replay Attack"):
+        v1 = st.session_state.v1
+        encrypted_msg = v1.send_secure_message("Replay Attack Packet", 40, "Sector-7")
+        launch_replay(5000, encrypted_msg)
+        log_event("ATTACK", "Replay Attack launched.")
 
-        process = subprocess.Popen(
-            ["python", "-m", "src.main"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
+    if st.sidebar.button("👥 Launch Sybil Attack"):
+        fake_msg = {
+            "id": "FakeCar",
+            "event": "Fake traffic jam",
+            "speed": 0,
+            "location": "Intersection-9",
+            "timestamp": str(time.time())
+        }
+        fake_ids = [f"Sybil_{i}" for i in range(5)]
+        launch_sybil(5000, fake_msg, fake_ids)
+        log_event("ATTACK", "Sybil Attack launched.")
 
-        log_area = st.empty()
-        logs = ""
+    if st.sidebar.button("🌐 Launch DoS Attack"):
+        launch_dos(5000, count=20)
+        log_event("ATTACK", "DoS Attack launched.")
 
-        # Live log streaming
-        while True:
-            output = process.stdout.readline()
-            if output == "" and process.poll() is not None:
-                break
-            if output:
-                logs += output
-                with tabs[1]:
-                    log_area.text_area("📜 Live Logs", logs, height=400)
-            time.sleep(0.1)
+    # -----------------------------
+    # Logs Output
+    # -----------------------------
+    st.subheader("📜 Event Logs")
+    if "log_box" not in st.session_state:
+        st.session_state.log_box = st.empty()
+    st.session_state.log_box.text_area("Logs", "\n".join(logs), height=300)
 
-        # Capture errors if any
-        stderr_output = process.stderr.read()
-        if stderr_output:
-            logs += "\n[ERRORS]\n" + stderr_output
-            with tabs[1]:
-                log_area.text_area("📜 Live Logs", logs, height=400)
-
-        st.success("✅ Simulation completed! Check the **Results** tab.")
-
-with tabs[2]:
+    # -----------------------------
+    # Results Section
+    # -----------------------------
     st.subheader("📊 Simulation Results")
+    if os.path.exists("simulation_results/latency.png") and os.path.exists("simulation_results/attacks.png"):
+        st.image("simulation_results/latency.png", caption="Latency Graph")
+        st.image("simulation_results/attacks.png", caption="Attack Detection Graph")
 
-    results_path = Path("simulation_results")
-    if results_path.exists():
-        latency_img = results_path / "latency.png"
-        attacks_img = results_path / "attacks.png"
+    if st.sidebar.button("📈 Generate Results"):
+        plotter.plot_latency([10, 20, 30, 40], [12, 18, 35, 55])
+        plotter.plot_attacks({"Replay": 3, "Sybil": 5, "DoS": 7})
+        log_event("RESULTS", "Graphs generated and saved.")
 
-        if latency_img.exists():
-            st.image(str(latency_img), caption="⏱ Latency Over Time", use_column_width=True)
-        if attacks_img.exists():
-            st.image(str(attacks_img), caption="⚠️ Attack Detections", use_column_width=True)
 
-        st.info("📂 All results are saved in the `simulation_results/` folder.")
-    else:
-        st.warning("⚠️ No simulation results found. Please run a simulation first.")
+if __name__ == "__main__":
+    main()
